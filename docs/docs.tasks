@@ -2,9 +2,9 @@ from xtask import *
 
 
 @task('build')
-def build(ctx):
+def build(ctx: Context):
 	run('make.bat html')
 
 @task('clean')
-def clean(ctx):
+def clean(ctx: Context):
 	delete(xglob(include=['build', '__pycache__']))
