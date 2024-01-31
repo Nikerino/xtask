@@ -1,0 +1,25 @@
+from xtask import *
+
+
+def run_build():
+	run('python -m build')
+
+@outputs(include=['dist/*.whl'])
+@task('build')
+def build(ctx: Context):
+	run_build()
+
+@outputs(include=['dist/*.whl'])
+@dependencies('clean')
+@task('rebuild')
+def rebuild(ctx: Context):
+	run_build()
+
+@task('clean')
+def clean(ctx: Context):
+	delete(xglob(include=[
+		'build',
+		'**/__pycache__',
+		'dist',
+		'*.egg-info',
+	]))

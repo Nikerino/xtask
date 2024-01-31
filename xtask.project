@@ -1,0 +1,5 @@
+{
+	"cache_location": "cache/",
+	"extension_location": "extensions/",
+	"log_level": "info"
+}
